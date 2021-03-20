@@ -1,1 +1,1 @@
-export const LS_ACCESS_TOKEN = 'access_token'
+export const LS_ACCESS_TOKEN = "access_token";

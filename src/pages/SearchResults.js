@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { config } from "../constants/config";
 import api from "../services/api";
-import { Image } from '../components';
+import { Image } from "../components";
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -45,7 +45,10 @@ export const SearchResults = () => {
     <Wrapper>
       <Header>Search Results for "{params.q}"</Header>
       <Grid>
-        {photos.length && photos.map((e) => <Image src={e.urls.small} isLiked={e.liked_by_user} id={e.id} />)}
+        {photos.length &&
+          photos.map((e) => (
+            <Image src={e.urls.small} isLiked={e.liked_by_user} id={e.id} />
+          ))}
       </Grid>
     </Wrapper>
   );

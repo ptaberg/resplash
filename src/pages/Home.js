@@ -1,10 +1,8 @@
-import { Navbar } from "../components"
-import { useAuth } from "../hooks/useAuth"
+import { Navbar } from "../components";
+import { useAuth } from "../hooks/useAuth";
 
 export const Home = () => {
-    const { dispatch } = useAuth();
+  const { dispatch } = useAuth();
 
-    return <div>
-        
-    </div>
-}
+  return <div></div>;
+};

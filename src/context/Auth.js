@@ -24,7 +24,7 @@ const authReducer = (state = initialState, action) => {
         access_token: action.payload.access_token,
       };
     case authTypes.SIGN_OUT:
-      localStorage.removeItem(LS_ACCESS_TOKEN)
+      localStorage.removeItem(LS_ACCESS_TOKEN);
       return {
         ...state,
         isLogged: false,

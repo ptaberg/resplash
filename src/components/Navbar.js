@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { SearchBar } from "./SearchBar";
-import { UserLog } from './UserLog';
+import { UserLog } from "./UserLog";
 
 const NavWrapper = styled.div`
   background-color: #fff;
@@ -10,7 +10,7 @@ const NavWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 16px; 
+  padding: 0px 16px;
 `;
 
 export const Navbar = ({ navigation }) => {

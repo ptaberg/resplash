@@ -5,14 +5,14 @@ const buttonStyles = {
     main: "#4375f5",
     hover: "#5E89F9",
     active: "#3261DB",
-    fontColor: '#FFFFFF'
+    fontColor: "#FFFFFF",
   },
   secondary: {
     main: "#FFFFFF",
     hover: "#EFEFEF",
     active: "#D7D7D7",
-    fontColor: '#000'
-  }
+    fontColor: "#000",
+  },
 };
 
 export const Button = styled.button`
