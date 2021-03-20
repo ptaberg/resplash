@@ -1,12 +1,7 @@
-import styled from "styled-components";
 import { useAuth } from "../hooks";
-import { signOut } from "../context/actions";
+import { signOut } from "../context";
 import { config } from "../constants";
 import { Button } from "./Button";
-
-const LogSpan = styled.span`
-  font-family: "Poppins", sans-serif;
-`;
 
 export const UserLog = () => {
   const { state, dispatch } = useAuth();

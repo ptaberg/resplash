@@ -3,7 +3,7 @@ import { Navbar } from "./components";
 import { SearchResults, Home, UserAuth } from "./pages";
 import { useAuth } from "./hooks";
 import { useEffect } from "react";
-import { signIn } from "./context/actions";
+import { signIn } from "./context";
 import { LS_ACCESS_TOKEN } from "./constants";
 
 export default function App() {

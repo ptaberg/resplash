@@ -1,12 +1,11 @@
-import { createContext, useReducer, useMemo, useContext } from "react";
+import { createContext } from "react";
 import { LS_ACCESS_TOKEN } from "../constants";
+import { useReducer, useMemo } from "react";
 
 export const AuthContext = createContext();
 
 const initialState = {
-  user: "",
   isLogged: false,
-  user: null,
   access_token: null,
 };
 
@@ -14,6 +13,17 @@ export const authTypes = {
   SIGN_IN: "SIGN_IN",
   SIGN_OUT: "SIGN_OUT",
 };
+
+export const signIn = (payload) => ({
+  type: authTypes.SIGN_IN,
+  payload: {
+    ...payload,
+  },
+});
+
+export const signOut = () => ({
+  type: authTypes.SIGN_OUT,
+});
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
