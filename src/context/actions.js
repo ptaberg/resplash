@@ -8,5 +8,5 @@ export const signIn = (payload) => ({
 });
 
 export const signOut = () => ({
-    type: authTypes.SIGN_OUT,
-  });
+  type: authTypes.SIGN_OUT,
+});

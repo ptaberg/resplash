@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import api from "../services/api";
-import { useEffect, useState } from "react";
-import { useAuth } from "../context";
+import { useAuth } from "../hooks";
 import { signOut } from "../context/actions";
+import { config } from "../constants";
+import { Button } from "./Button";
 
 const LogSpan = styled.span`
   font-family: "Poppins", sans-serif;
@@ -10,36 +10,27 @@ const LogSpan = styled.span`
 
 export const UserLog = () => {
   const { state, dispatch } = useAuth();
-
-  //   useEffect(() => {
-  //     state
-  //     getUser();
-  //   }, []);
-
-  console.log(state);
-
   return (
     <>
       {!state.isLogged && (
-        <LogSpan
+        <Button
+          type="secondary"
           onClick={() => {
-            window.location.href = `https://unsplash.com/oauth/authorize?client_id=TkeJv_IfuDDUxigAJw93c7Fa4dnJq1PGjdVEm7kvTs8&redirect_uri=http://localhost:3000/auth&response_type=code&scope=public+read_user+write_likes`;
+            window.location.href = `https://unsplash.com/oauth/authorize?client_id=${config.access_key}&redirect_uri=http://localhost:3000/auth&response_type=code&scope=public+read_user+write_likes`;
           }}
         >
           Sign in
-        </LogSpan>
+        </Button>
       )}
       {state.isLogged && (
-        <LogSpan>
-          {state.user?.first_name} {state.user?.last_name}{" "}
-          <span
-            onClick={() => {
-              dispatch(signOut());
-            }}
-          >
-            (Sign out)
-          </span>
-        </LogSpan>
+        <Button
+          type="secondary"
+          onClick={() => {
+            dispatch(signOut());
+          }}
+        >
+          Sign out
+        </Button>
       )}
     </>
   );

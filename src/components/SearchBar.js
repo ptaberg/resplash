@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { Button } from "./Button";
 
 const Bar = styled.div`
   display: flex;
@@ -28,17 +29,6 @@ const SearchInput = styled.input`
   padding: 8px 17px;
   outline: 0;
   margin-right: 8px;
-`;
-
-const SearchButton = styled.button`
-  cursor: pointer;
-  font-family: "Poppins", sans-serif;
-  height: 32px;
-  padding: 8px 17px;
-  border-radius: 50px;
-  background-color: #4375f5;
-  border: none;
-  color: white;
 `;
 
 const SAVED_QUERIES_STATE = "queries";
@@ -98,14 +88,15 @@ export const SearchBar = () => {
           <Suggestions limit={5} onChoose={(c) => setQ(c)} query={q} />
         )}
       </SearchField>
-      <SearchButton
+      <Button
+        type="primary"
         onClick={() => {
           saveQueryToStorage(q);
           history.push(`/search/${q}`);
         }}
       >
         Search
-      </SearchButton>
+      </Button>
     </Bar>
   );
 };

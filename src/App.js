@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar } from "./components";
-import { SearchResults, Home, UserRedirect } from "./pages";
-import { useAuth } from "./context";
+import { SearchResults, Home, UserAuth } from "./pages";
+import { useAuth } from "./hooks";
 import { useEffect } from "react";
 import { signIn } from "./context/actions";
 import { LS_ACCESS_TOKEN } from "./constants";
@@ -22,7 +22,7 @@ export default function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route path="/auth" component={UserRedirect} />
+        <Route path="/auth" component={UserAuth} />
         <Route path="/search/:q" component={SearchResults} />
         <Route path="/" component={Home} />
       </Switch>

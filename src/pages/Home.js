@@ -1,5 +1,5 @@
 import { Navbar } from "../components"
-import { useAuth, authTypes } from "../context"
+import { useAuth } from "../hooks/useAuth"
 
 export const Home = () => {
     const { dispatch } = useAuth();

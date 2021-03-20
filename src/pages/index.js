@@ -1,3 +1,3 @@
 export * from './Home';
-export * from './SearchReults';
-export * from './UserRedirect';
+export * from './SearchResults';
+export * from './UserAuth';
