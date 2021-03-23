@@ -27,6 +27,7 @@ export const Button = styled.button`
   font-size: 14px;
   background-color: ${(p) => buttonStyles[p.type].main};
   border: none;
+  min-width: 91px;
   color: ${(p) => buttonStyles[p.type].fontColor};
 
   &:hover {
@@ -36,5 +37,16 @@ export const Button = styled.button`
   &:active {
     background-color: ${(p) => buttonStyles[p.type].active};
     outline: 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    min-width: 0px;
+    padding: 1px 8px 0px;
+    font-size: 13px;
+    line-height: 15px;
+
+    span {
+      display: none;
+    }
   }
 `;

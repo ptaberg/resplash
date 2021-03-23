@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { SearchBar } from "./SearchBar";
 import { UserLog } from "./UserLog";

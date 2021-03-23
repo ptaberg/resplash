@@ -7,7 +7,8 @@ import { signIn } from "./context";
 import { LS_ACCESS_TOKEN } from "./constants";
 
 export default function App() {
-  const { state, dispatch } = useAuth();
+  const { dispatch } = useAuth();
+
   useEffect(() => {
     const savedToken = localStorage.getItem(LS_ACCESS_TOKEN);
     if (savedToken) {
@@ -17,7 +18,8 @@ export default function App() {
         })
       );
     }
-  }, []);
+  }, [dispatch]);
+
   return (
     <Router>
       <Navbar />

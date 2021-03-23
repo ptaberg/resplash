@@ -2,12 +2,16 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Button } from "./Button";
+import SearchIcon from "../assets/SearchIcon.png";
+import { Icon } from "./Icon";
 
 const Bar = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 const SearchField = styled.div`
+  width: 100%;
   input:focus + div {
     display: block;
   }
@@ -29,6 +33,9 @@ const SearchInput = styled.input`
   padding: 8px 17px;
   outline: 0;
   margin-right: 8px;
+  @media screen and (max-width: 800px) {
+    width: calc(100% - 8px);
+  }
 `;
 
 const SAVED_QUERIES_STATE = "queries";
@@ -48,13 +55,22 @@ const SugWrapper = styled.div`
   display: none;
   background-color: #fff;
   width: 545px;
-  margin: 8px;
+  z-index: 2;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+
+  @media screen and (max-width: 800px) {
+    left: 0;
+    top: 50px;
+    width: 100vw;
+  }
 `;
 
 const SugItem = styled.div`
   cursor: pointer;
   width: 100%;
-  padding: 8px;
+  padding: 8px 24px;
+  box-sizing: border-box;
 
   &:hover {
     background-color: grey;
@@ -95,7 +111,8 @@ export const SearchBar = () => {
           history.push(`/search/${q}`);
         }}
       >
-        Search
+        <Icon src={SearchIcon} />
+        <span>Search</span>
       </Button>
     </Bar>
   );

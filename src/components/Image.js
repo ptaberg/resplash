@@ -3,11 +3,9 @@ import { Button } from "./Button";
 import { useState } from "react";
 import { useAuth } from "../hooks";
 import api from "../services/api";
-import { ReactSVG } from "react-svg";
 
 const Img = styled.img`
   height: 100%;
-  border-radius: 16px;
   background-color: black;
   object-fit: cover;
   width: 100%;
@@ -15,8 +13,12 @@ const Img = styled.img`
 
 const Wrapper = styled.div`
   position: relative;
-  width: 30%;
-  height: 200px;
+  width: 33.3%;
+  height: 260px;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -50,7 +52,6 @@ export const Image = ({ src, isLiked, id }) => {
         <ButtonWrapper>
           <Button type="secondary" onClick={handleLike} disabled={false}>
             {loading ? "..." : liked ? "Unlike" : "Like"}
-            {/* {liked && ? "Unlike" : "Like"} */}
           </Button>
         </ButtonWrapper>
       )}

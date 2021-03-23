@@ -12,22 +12,29 @@ const Wrapper = styled.div`
 
 const Grid = styled.div`
   display: flex;
-  width: 700px;
-  gap: 10px;
+  width: 800px;
   flex-wrap: wrap;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 const Header = styled.h1`
   font-size: 32px;
   font-family: "Poppings", sans-serif;
-  margin: 32px 0px;
+  margin: 32px 0px 32px 12px;
   font-weight: 600;
+
+  @media screen and (max-width: 800px) {
+    font-size: 14px;
+    margin: 18px 0px 18px 8px;
+  }
 `;
 
 export const SearchResults = () => {
   let params = useParams();
   const [photos, setPhotos] = useState([]);
-  console.log("search for ", params.q);
 
   useEffect(() => {
     const getPhotos = async () => {
@@ -35,7 +42,6 @@ export const SearchResults = () => {
         `search/photos?query=${params.q}&client_id=${config.access_key}`
       );
       setPhotos(photosResponse.data.results);
-      console.log(photosResponse?.data?.results);
     };
 
     getPhotos();
@@ -45,7 +51,7 @@ export const SearchResults = () => {
     <Wrapper>
       <Header>Search Results for "{params.q}"</Header>
       <Grid>
-        {photos.length &&
+        {!!photos.length &&
           photos.map((e) => (
             <Image src={e.urls.small} isLiked={e.liked_by_user} id={e.id} />
           ))}
