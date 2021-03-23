@@ -1,6 +1,4 @@
-// https://api.unsplash.com/search/photos?query=123&client_id=TkeJv_IfuDDUxigAJw93c7Fa4dnJq1PGjdVEm7kvTs8
-
-const { default: axios } = require("axios");
+import axios from "axios";
 
 const base = "https://api.unsplash.com/";
 
